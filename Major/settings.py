@@ -40,7 +40,12 @@ INSTALLED_APPS = [
     'pages.apps.PagesConfig',
     'realtors.apps.RealtorsConfig',
     'listings.apps.ListingsConfig',
+    'django.contrib.humanize',
+    'accounts.apps.AccountsConfig',
+    'contacts.apps.ContactsConfig',
     
+    
+
 ]
 
 MIDDLEWARE = [
@@ -58,7 +63,7 @@ ROOT_URLCONF = 'Major.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -82,9 +87,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'majordb',
         'USER': 'postgres',
-        'PASSWORD':'charusat',
+        'PASSWORD': 'charusat',
         'HOST': 'localhost',
-        
+
     }
 }
 
@@ -124,8 +129,22 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
-STATIC_ROOT = os.path.join(BASE_DIR,'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,'Major/static')
+    os.path.join(BASE_DIR, 'Major/static')
+
 ]
+
+
+# media folder setings
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
+
+#messages
+from django.contrib.messages import constants as messages
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger',
+     
+}
